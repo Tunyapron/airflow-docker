@@ -1,0 +1,21 @@
+[2026-08-31T08:02:00.070+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-08-31T08:02:00.090+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: iris_pipeline_dag.deploy_model manual__2026-08-31T08:01:47.644062+00:00 [queued]>
+[2026-08-31T08:02:00.098+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: iris_pipeline_dag.deploy_model manual__2026-08-31T08:01:47.644062+00:00 [queued]>
+[2026-08-31T08:02:00.100+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2026-08-31T08:02:00.111+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): deploy_model> on 2026-08-31 08:01:47.644062+00:00
+[2026-08-31T08:02:00.117+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=309) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-08-31T08:02:00.118+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'iris_pipeline_dag', 'deploy_model', 'manual__2026-08-31T08:01:47.644062+00:00', '--job-id', '44', '--raw', '--subdir', 'DAGS_FOLDER/ml_01_iris_pipeline-3.py', '--cfg-path', '/tmp/tmppnsnoyg3']
+[2026-08-31T08:02:00.119+0000] {standard_task_runner.py:72} INFO - Started process 310 to run task
+[2026-08-31T08:02:00.120+0000] {standard_task_runner.py:105} INFO - Job 44: Subtask deploy_model
+[2026-08-31T08:02:00.182+0000] {task_command.py:467} INFO - Running <TaskInstance: iris_pipeline_dag.deploy_model manual__2026-08-31T08:01:47.644062+00:00 [running]> on host 098b3843083c
+[2026-08-31T08:02:00.242+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='workshop2' AIRFLOW_CTX_DAG_ID='iris_pipeline_dag' AIRFLOW_CTX_TASK_ID='deploy_model' AIRFLOW_CTX_EXECUTION_DATE='2026-08-31T08:01:47.644062+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-08-31T08:01:47.644062+00:00'
+[2026-08-31T08:02:00.245+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-08-31T08:02:00.280+0000] {logging_mixin.py:190} INFO - Deploy สำเร็จ: /opt/***/models/iris_models/candidate_manual__2026-08-31T08-01-47.644062-00-00.pkl -> /opt/***/models/iris_models/current_model.pkl
+[2026-08-31T08:02:00.284+0000] {python.py:240} INFO - Done. Returned value was: deployed
+[2026-08-31T08:02:00.305+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-08-31T08:02:00.306+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=iris_pipeline_dag, task_id=deploy_model, run_id=manual__2026-08-31T08:01:47.644062+00:00, execution_date=20260831T080147, start_date=20260831T080200, end_date=20260831T080200
+[2026-08-31T08:02:00.335+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-08-31T08:02:00.355+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-08-31T08:02:00.359+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

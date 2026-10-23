@@ -1,0 +1,25 @@
+[2026-08-24T07:40:55.850+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-08-24T07:40:55.866+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: xcom_dag.load_task manual__2026-08-24T07:40:52.420619+00:00 [queued]>
+[2026-08-24T07:40:55.874+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: xcom_dag.load_task manual__2026-08-24T07:40:52.420619+00:00 [queued]>
+[2026-08-24T07:40:55.876+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2026-08-24T07:40:55.887+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): load_task> on 2026-08-24 07:40:52.420619+00:00
+[2026-08-24T07:40:55.893+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=194) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-08-24T07:40:55.895+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'xcom_dag', 'load_task', 'manual__2026-08-24T07:40:52.420619+00:00', '--job-id', '10', '--raw', '--subdir', 'DAGS_FOLDER/02_xcom_dag.py', '--cfg-path', '/tmp/tmpgzwg9l_u']
+[2026-08-24T07:40:55.896+0000] {standard_task_runner.py:72} INFO - Started process 195 to run task
+[2026-08-24T07:40:55.898+0000] {standard_task_runner.py:105} INFO - Job 10: Subtask load_task
+[2026-08-24T07:40:55.964+0000] {task_command.py:467} INFO - Running <TaskInstance: xcom_dag.load_task manual__2026-08-24T07:40:52.420619+00:00 [running]> on host 0533291d63b0
+[2026-08-24T07:40:56.029+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='workshop' AIRFLOW_CTX_DAG_ID='xcom_dag' AIRFLOW_CTX_TASK_ID='load_task' AIRFLOW_CTX_EXECUTION_DATE='2026-08-24T07:40:52.420619+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-08-24T07:40:52.420619+00:00'
+[2026-08-24T07:40:56.031+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-08-24T07:40:56.063+0000] {logging_mixin.py:190} INFO - ===== สรุปผล (Load) =====
+[2026-08-24T07:40:56.065+0000] {logging_mixin.py:190} INFO - ข้อมูลดิบจาก extract_task : [15, 42, 8]
+[2026-08-24T07:40:56.067+0000] {logging_mixin.py:190} INFO - ข้อมูลหลังแปลงจาก transform_task : [30, 84, 16]
+[2026-08-24T07:40:56.068+0000] {logging_mixin.py:190} INFO - ผลรวม : 130
+[2026-08-24T07:40:56.069+0000] {logging_mixin.py:190} INFO - บันทึกผลลัพธ์เรียบร้อย (จำลอง)
+[2026-08-24T07:40:56.071+0000] {python.py:240} INFO - Done. Returned value was: 130
+[2026-08-24T07:40:56.091+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-08-24T07:40:56.094+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=xcom_dag, task_id=load_task, run_id=manual__2026-08-24T07:40:52.420619+00:00, execution_date=20260824T074052, start_date=20260824T074055, end_date=20260824T074056
+[2026-08-24T07:40:56.114+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-08-24T07:40:56.129+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-08-24T07:40:56.132+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

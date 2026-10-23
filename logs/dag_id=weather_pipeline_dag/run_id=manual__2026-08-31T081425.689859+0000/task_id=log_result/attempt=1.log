@@ -1,0 +1,26 @@
+[2026-08-31T08:14:48.479+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-08-31T08:14:48.495+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_pipeline_dag.log_result manual__2026-08-31T08:14:25.689859+00:00 [queued]>
+[2026-08-31T08:14:48.502+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_pipeline_dag.log_result manual__2026-08-31T08:14:25.689859+00:00 [queued]>
+[2026-08-31T08:14:48.504+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2026-08-31T08:14:48.516+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): log_result> on 2026-08-31 08:14:25.689859+00:00
+[2026-08-31T08:14:48.522+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=575) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-08-31T08:14:48.525+0000] {standard_task_runner.py:72} INFO - Started process 577 to run task
+[2026-08-31T08:14:48.524+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'weather_pipeline_dag', 'log_result', 'manual__2026-08-31T08:14:25.689859+00:00', '--job-id', '57', '--raw', '--subdir', 'DAGS_FOLDER/ml_02_weather_pipeline.py', '--cfg-path', '/tmp/tmp6wcya1t3']
+[2026-08-31T08:14:48.527+0000] {standard_task_runner.py:105} INFO - Job 57: Subtask log_result
+[2026-08-31T08:14:48.729+0000] {task_command.py:467} INFO - Running <TaskInstance: weather_pipeline_dag.log_result manual__2026-08-31T08:14:25.689859+00:00 [running]> on host 098b3843083c
+[2026-08-31T08:14:48.787+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='workshop2' AIRFLOW_CTX_DAG_ID='weather_pipeline_dag' AIRFLOW_CTX_TASK_ID='log_result' AIRFLOW_CTX_EXECUTION_DATE='2026-08-31T08:14:25.689859+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-08-31T08:14:25.689859+00:00'
+[2026-08-31T08:14:48.789+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-08-31T08:14:48.820+0000] {base.py:84} INFO - Retrieving connection 'postgres_target'
+[2026-08-31T08:14:48.824+0000] {sql.py:553} INFO - Running statement: INSERT INTO model_metrics (model_name, rmse, deployed) VALUES (%s, %s, %s);, parameters: ('weather_bangkok', 0.5855681002240402, True)
+[2026-08-31T08:14:48.826+0000] {sql.py:562} INFO - Rows affected: 1
+[2026-08-31T08:14:48.830+0000] {logging_mixin.py:190} INFO - ===== สรุปผล Stage 2 (weather pipeline) =====
+[2026-08-31T08:14:48.831+0000] {logging_mixin.py:190} INFO - RMSE: 0.5856
+[2026-08-31T08:14:48.832+0000] {logging_mixin.py:190} INFO - Deploy รอบนี้: ใช่
+[2026-08-31T08:14:48.832+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-08-31T08:14:48.840+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-08-31T08:14:48.841+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=weather_pipeline_dag, task_id=log_result, run_id=manual__2026-08-31T08:14:25.689859+00:00, execution_date=20260831T081425, start_date=20260831T081448, end_date=20260831T081448
+[2026-08-31T08:14:48.862+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-08-31T08:14:48.878+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-08-31T08:14:48.881+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

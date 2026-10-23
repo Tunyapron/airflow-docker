@@ -1,0 +1,25 @@
+[2026-08-31T08:14:34.404+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-08-31T08:14:34.421+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_pipeline_dag.prepare_training_data manual__2026-08-31T08:14:25.689859+00:00 [queued]>
+[2026-08-31T08:14:34.430+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_pipeline_dag.prepare_training_data manual__2026-08-31T08:14:25.689859+00:00 [queued]>
+[2026-08-31T08:14:34.431+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2026-08-31T08:14:34.444+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): prepare_training_data> on 2026-08-31 08:14:25.689859+00:00
+[2026-08-31T08:14:34.450+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=511) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-08-31T08:14:34.452+0000] {standard_task_runner.py:72} INFO - Started process 513 to run task
+[2026-08-31T08:14:34.452+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'weather_pipeline_dag', 'prepare_training_data', 'manual__2026-08-31T08:14:25.689859+00:00', '--job-id', '50', '--raw', '--subdir', 'DAGS_FOLDER/ml_02_weather_pipeline.py', '--cfg-path', '/tmp/tmp6k_zb57b']
+[2026-08-31T08:14:34.454+0000] {standard_task_runner.py:105} INFO - Job 50: Subtask prepare_training_data
+[2026-08-31T08:14:34.521+0000] {task_command.py:467} INFO - Running <TaskInstance: weather_pipeline_dag.prepare_training_data manual__2026-08-31T08:14:25.689859+00:00 [running]> on host 098b3843083c
+[2026-08-31T08:14:34.796+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='workshop2' AIRFLOW_CTX_DAG_ID='weather_pipeline_dag' AIRFLOW_CTX_TASK_ID='prepare_training_data' AIRFLOW_CTX_EXECUTION_DATE='2026-08-31T08:14:25.689859+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-08-31T08:14:25.689859+00:00'
+[2026-08-31T08:14:34.797+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-08-31T08:14:34.826+0000] {base.py:84} INFO - Retrieving connection 'postgres_target'
+[2026-08-31T08:14:34.833+0000] {sql.py:553} INFO - Running statement: SELECT date, temperature FROM weather_history WHERE province = %s ORDER BY date ASC;, parameters: ('กรุงเทพฯ',)
+[2026-08-31T08:14:34.836+0000] {sql.py:562} INFO - Rows affected: 15
+[2026-08-31T08:14:34.839+0000] {logging_mixin.py:190} INFO - ดึงข้อมูลย้อนหลังมาทั้งหมด 15 วัน
+[2026-08-31T08:14:34.840+0000] {logging_mixin.py:190} INFO - สร้าง feature ได้ 12 แถว (จากข้อมูลดิบ 15 วัน)
+[2026-08-31T08:14:34.890+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-08-31T08:14:34.900+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-08-31T08:14:34.901+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=weather_pipeline_dag, task_id=prepare_training_data, run_id=manual__2026-08-31T08:14:25.689859+00:00, execution_date=20260831T081425, start_date=20260831T081434, end_date=20260831T081434
+[2026-08-31T08:14:34.950+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-08-31T08:14:35.122+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-08-31T08:14:35.126+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

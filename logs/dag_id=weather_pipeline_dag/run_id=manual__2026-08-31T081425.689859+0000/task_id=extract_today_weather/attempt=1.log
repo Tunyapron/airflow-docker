@@ -1,0 +1,29 @@
+[2026-08-31T08:14:32.333+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-08-31T08:14:32.348+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_pipeline_dag.extract_today_weather manual__2026-08-31T08:14:25.689859+00:00 [queued]>
+[2026-08-31T08:14:32.354+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_pipeline_dag.extract_today_weather manual__2026-08-31T08:14:25.689859+00:00 [queued]>
+[2026-08-31T08:14:32.356+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2026-08-31T08:14:32.367+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): extract_today_weather> on 2026-08-31 08:14:25.689859+00:00
+[2026-08-31T08:14:32.373+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=507) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-08-31T08:14:32.376+0000] {standard_task_runner.py:72} INFO - Started process 509 to run task
+[2026-08-31T08:14:32.375+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'weather_pipeline_dag', 'extract_today_weather', 'manual__2026-08-31T08:14:25.689859+00:00', '--job-id', '49', '--raw', '--subdir', 'DAGS_FOLDER/ml_02_weather_pipeline.py', '--cfg-path', '/tmp/tmpckfs5ypo']
+[2026-08-31T08:14:32.377+0000] {standard_task_runner.py:105} INFO - Job 49: Subtask extract_today_weather
+[2026-08-31T08:14:32.441+0000] {task_command.py:467} INFO - Running <TaskInstance: weather_pipeline_dag.extract_today_weather manual__2026-08-31T08:14:25.689859+00:00 [running]> on host 098b3843083c
+[2026-08-31T08:14:32.646+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='workshop2' AIRFLOW_CTX_DAG_ID='weather_pipeline_dag' AIRFLOW_CTX_TASK_ID='extract_today_weather' AIRFLOW_CTX_EXECUTION_DATE='2026-08-31T08:14:25.689859+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-08-31T08:14:25.689859+00:00'
+[2026-08-31T08:14:32.648+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-08-31T08:14:33.505+0000] {base.py:84} INFO - Retrieving connection 'postgres_target'
+[2026-08-31T08:14:33.514+0000] {sql.py:553} INFO - Running statement: 
+        INSERT INTO weather_history (date, province, temperature)
+        VALUES (%s, %s, %s)
+        ON CONFLICT (date, province)
+        DO UPDATE SET temperature = EXCLUDED.temperature, inserted_at = NOW();
+        , parameters: (datetime.date(2026, 8, 31), 'กรุงเทพฯ', 28.1)
+[2026-08-31T08:14:33.519+0000] {sql.py:562} INFO - Rows affected: 1
+[2026-08-31T08:14:33.524+0000] {logging_mixin.py:190} INFO - บันทึกอุณหภูมิวันนี้ (2026-08-31): 28.1 °C
+[2026-08-31T08:14:33.526+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-08-31T08:14:33.535+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-08-31T08:14:33.537+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=weather_pipeline_dag, task_id=extract_today_weather, run_id=manual__2026-08-31T08:14:25.689859+00:00, execution_date=20260831T081425, start_date=20260831T081432, end_date=20260831T081433
+[2026-08-31T08:14:33.560+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-08-31T08:14:33.728+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-08-31T08:14:33.732+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
